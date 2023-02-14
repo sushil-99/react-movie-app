@@ -1,23 +1,47 @@
-import logo from './logo.svg';
+
+import { useState } from 'react';
+import { Container } from 'react-bootstrap';
 import './App.css';
+import { ListContainer } from './components/ListContainer';
+import { SearchForm } from './components/SearchForm';
 
 function App() {
+
+  const [movieList, setMovieList] = useState([])
+  const addMovie = (movie) => {
+    const filteredMovies = movieList.filter((item) => item.imdbID !== movie.imdbID)
+    setMovieList([...filteredMovies, movie])
+
+  }
+  // console.log(movieList)
+
+  const removeMovie = (id) => {
+    console.log(id)
+    if(!window.confirm("Are you sure you want to delete this movie?")){
+      return
+
+    }
+    const filteredMovies = movieList.filter((item) => item.imdbID !== id )
+    setMovieList(filteredMovies)
+
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="wrapper bg-dark text-warning pt-5">
+      <Container>
+        <h3 className="text-center ">My Movie Collection</h3>
+        <hr />
+      
+      {/* form section */}
+      <SearchForm addMovie={addMovie}/>    
+
+      
+      {/* list section */}
+      <ListContainer movieList={movieList} removeMovie={removeMovie}/>
+      {/* Buttons */}
+      {/* movie lists */}
+      </Container>
+
     </div>
   );
 }
