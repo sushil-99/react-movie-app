@@ -27,7 +27,8 @@ function App() {
   }
 
   return (
-    <div className="wrapper bg-dark text-warning pt-5">
+    <>
+      <div className="wrapper bg-dark text-warning pt-5">
       <Container>
         <h3 className="text-center ">My Movie Collection</h3>
         <hr />
@@ -40,9 +41,14 @@ function App() {
       <ListContainer movieList={movieList} removeMovie={removeMovie}/>
       {/* Buttons */}
       {/* movie lists */}
-      </Container>
-
+      </Container><br /><br />
+   
     </div>
+     <footer className="text-center">
+     &copy;Copyright. All rights reserved || Made by me
+   </footer>
+    </>
+    
   );
 }
 
