@@ -24,6 +24,7 @@ export const SearchForm = ({addMovie}) => {
         const result = await fetchData(movieName)
         if(result.Response === "True"){
             setMovie(result)
+            setError(error)
         }else {
             setError(true)
         }

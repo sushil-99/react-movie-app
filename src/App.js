@@ -16,7 +16,7 @@ function App() {
   // console.log(movieList)
 
   const removeMovie = (id) => {
-    console.log(id)
+    // console.log(id)
     if(!window.confirm("Are you sure you want to delete this movie?")){
       return
 

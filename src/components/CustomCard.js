@@ -15,7 +15,8 @@ const CustomCard = ({ movie = {}, removeDisplay, handleAdd, showDelete, removeMo
                 </Card.Text>
 
                 {showDelete ? (
-                    <Button onClick={removeMovie} variant="danger" className="mt-3 w-100">Discard</Button>
+                    <Button onClick={()=>removeMovie(movie.imdbID)} variant="danger" className="mt-3 w-100">Discard
+                    </Button>
                 )
                     : (
                         <>
